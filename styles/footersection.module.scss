@@ -1,0 +1,90 @@
+@use './materials/mixin' as *;
+
+footer
+{
+    .section_footer
+    {
+        @include section(var(--background-primary));
+        > .container
+        {
+            @include container;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+
+            > .about
+            {
+                @include flex(column);
+                align-items: flex-start;
+                gap: 2rem;
+                > p
+                {
+                    font-size: 1.6rem;
+                    max-width: 25rem;
+                    line-height: 1.6;
+                    color: var(--foreground-secondary);
+                }
+            }
+            > .quick_link,
+            > .legal_link
+            {
+                @include flex(column);
+                align-items: flex-start;
+                > h3
+                {
+                    font-size: 2rem;
+                    color: var(--foreground-primary);
+                    margin-bottom: 1rem;
+                }
+                > a 
+                {
+                    font-size: 1.7rem;
+                    color: var(--foreground-secondary);
+                    margin: .5rem 0;
+                    text-decoration: none;
+                    transition: .3s;
+                    &:hover
+                    {
+                        color: var(--accent);
+                    }
+                }
+            }
+        }
+    }
+    .bottom
+    {
+        padding: 2rem 3rem;
+        border-top: .1rem solid var(--action-primary);
+        color: var(--foreground-secondary);
+        font-size: 1.5rem;
+        text-align: center;
+        background-color: var(--background-primary);
+    }
+}
+
+@media (max-width: 680px)
+{
+    footer .section_footer .container
+    {
+        grid-template-columns: 1fr;
+        row-gap: 4rem;
+        .about,
+        .quick_link,
+        .legal_link 
+        {
+            align-items: center;
+            > p
+            {
+                max-width: 35rem;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px)
+{
+    footer .section_footer
+    {
+        padding: 3rem;
+    }
+}

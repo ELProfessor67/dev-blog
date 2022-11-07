@@ -1,0 +1,192 @@
+@use './materials/mixin' as *;
+
+
+.youtubecontainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  
+  .frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+}
+
+.section_blog__detail
+{
+    @include section(var(--background-secondary));
+    padding: 3rem;
+    width: 100vw;
+    overflow-x: hidden;
+
+    > .container
+    {
+        @include container;
+        max-width: 90rem;
+        > .detail_box
+        {
+            @include flex(column,flex-start);
+            align-items: flex-start;
+            gap: 1rem;
+            > h1
+            {
+                font-size: 3rem;
+                color: var(--foreground-primary);
+                line-height: 1.5;
+                // margin-bottom: 5rem;
+            }
+            > .markdown
+            {
+                font-size: 1.8rem;
+                color: var(--foreground-primary);
+                line-height: 1.5;
+                margin-top: 1.5rem;
+                position: relative;
+                width: 100%;
+                a
+                {
+                    color: var(--foreground-primary);
+                    display: block;
+                    margin: .5rem 0;
+                }
+
+                img
+                {
+                    width: 100%;
+                }
+            }
+            > .image_box
+            {
+                width: 100%;
+                img
+                {
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 1rem;
+                }
+            }
+            >.blog_author {
+                @include flex($justify: flex-start);
+                gap: 2rem;
+                margin: 2rem 0;
+                h4 {
+                    font-size: 1.6rem;
+                    margin-bottom: .6rem;
+                    color: var(--foreground-secondary);
+                }
+
+                p {
+                    font-size: 1.5rem;
+                    @include flex;
+                    color: var(--foreground-tertiary);
+
+                    >span {
+                        // @include center;
+                        display: flex;
+                        gap: .5rem;
+                        align-items: center;
+                        // padding-right: .5rem;
+                    }
+                }
+
+            }
+        }
+
+        > .releted_post
+        {
+            border-top: .1rem solid var(--action-primary);
+            margin: 5rem 0;
+            > h2
+            {
+                font-size: 2.7rem;
+                color: var(--foreground-primary);
+                margin: 3rem 0;
+                padding-left: 3rem;
+                border-left: .4rem solid var(--action-primary);
+            }
+            .releted_post__container
+            {
+                > a
+                {
+                    color: var(--accent);
+                    font-size: 1.5rem;
+                    &:hover
+                    {
+                        text-decoration: underline;
+                    }
+                }
+                .card
+                {
+                    max-width: 75rem;
+                    @include flex(column,flex-start);
+                    align-items: flex-start;
+                    gap: .8rem;
+                    background-color: var(--background-primary);
+                    padding: 1rem;
+                    border-radius: 1rem;
+                    margin: 2rem 0;
+                    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.089);
+                    transition: .3s;
+                    &:hover
+                    {
+                        transform: translateY(-1rem);
+                    }
+                    > time
+                    {
+                        font-size: 1.5rem;
+                        color: var(--foreground-tertiary);
+                    }
+                    > h2
+                    {
+                        font-size: 2rem;
+                        color: var(--foreground-primary);
+                    }
+                    > p
+                    {
+                        font-size: 1.7rem;
+                        color: var(--foreground-secondary);
+                    }
+                    > a
+                    {
+                        font-size: 1.7rem;
+                        text-decoration: none;
+                        color: var(--accent);
+                        margin-top: 1rem;
+                        transition: .3s;
+                        &:hover
+                        {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 350px)
+{
+
+            .section_blog__detail .container .detail_box .blog_author p
+            {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: .5rem;
+            }
+}
+
+
+// @media (max-width: 740px)
+// {
+
+//     .section_blog__detail .container .detail_box .markdown
+//     {
+//         font-size: 1.5rem;
+//     }
+// }

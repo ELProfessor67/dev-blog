@@ -1,0 +1,127 @@
+@use './materials/mixin' as *;
+
+.sidebar
+{
+	width: 100%;
+    padding: 2rem 3rem;
+    background-color: var(--background-primary);
+    transition: .3s;
+    position: fixed;
+    z-index: 10;
+    @include flex($justify: space-between);
+    .button
+    {
+    	@include flex;
+    	gap: 2rem;
+
+    	> button
+    	{
+    		width: 4rem;
+            height: 4rem;
+            @include center;
+            font-size: 2rem;
+            background-color: var(--action-secondary);
+            border: none;
+            border-radius: 50%;
+            color: var(--foreground-tertiary);
+            transition: all .3s;
+            &:hover
+            {
+                background-color: var(--accent);
+                color: #fff;
+            }
+    	}
+    }
+    .menu
+    {
+        font-size: 3rem;
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        z-index: 1000;
+        @include center;
+        color: var(--foreground-tertiary);
+        border-radius: 50%;
+        transition: all .3s;
+        cursor: pointer;
+        &:hover
+        {
+            color: #fff;
+            background-color: var(--accent);
+        }
+    }
+
+    > nav
+    {
+    	width: 30rem;
+    	height: 100vh;
+    	background-color: var(--background-primary);
+    	position: absolute;
+    	top: 0;
+    	left: -100%;
+    	z-index: 100;
+    	transition: all .3s;
+    	> ul
+    	{
+    		@include flex(column,flex-start);
+    		padding: 10rem 0 0 5rem;
+    	    align-items: flex-start;
+    		list-style: none;
+    		> li a
+    		{
+    			font-size: 2rem;
+    			display: block;
+                color: var(--foreground-secondary);
+                transition: all .3s;
+                margin: 2rem 0;
+                &:hover
+                {
+                    color: var(--accent);
+                }
+    		}
+    	}
+    }
+    > nav.active
+    {
+    	left: 0%;
+    }
+
+    .avatar
+    {
+    	@include flex;
+    	gap: 1rem;
+    	p
+    	{
+    		font-size: 1.8rem;
+    		color: var(--foreground-primary);
+    		margin-bottom: .2rem;
+    	}
+
+    	h3
+    	{
+    		font-size: 1.8rem;
+    		color: var(--foreground-primary);
+    	}
+    }
+}
+
+
+@media (max-width: 300px)
+{
+    .sidebar > nav
+    {
+    	width: 25rem;
+    	> ul
+    	{
+    		padding-top: 8rem;
+    	}
+    }
+}
+
+@media (max-width: 450px)
+{
+    .sidebar > .avatar > .name
+    {
+    	display: none;
+    }
+}

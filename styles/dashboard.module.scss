@@ -1,0 +1,34 @@
+@use './materials/mixin' as *;
+
+.section_dashboard
+{
+	@include section(var(--background-secondary));
+	padding-top: 12rem;
+	> .container 
+	{
+		@include container;
+
+		> .heading
+		{
+			font-size: 2.7rem;
+			color: var(--foreground-primary);
+			padding: 0 0 1rem 3rem;
+			border-left: 0.4rem solid var(--action-primary);
+			margin-bottom: 2rem;
+		}
+		.bar_doughnut
+		{
+			max-width: 60rem;
+			margin: auto;
+		}
+	}
+}
+
+@media (max-width: 480px)
+{
+	.section_dashboard
+	{
+		padding: 3rem;
+		padding-top: 12rem;
+	}
+}

@@ -1,0 +1,30 @@
+@use './materials/mixin' as *;
+
+.section_loader
+{
+	background: var(--background-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 86vh;
+
+    > .loader
+    {
+        width: 20rem;
+        height: 20rem;
+        border-bottom: .5rem solid var(--accent);
+        border-radius: 50%;
+        animation: loader 1s infinite linear;
+        transform-origin: center center;
+    }
+}
+
+@keyframes loader
+{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+         transform: rotate(360deg);
+    }
+}

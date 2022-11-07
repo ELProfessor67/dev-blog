@@ -1,0 +1,27 @@
+@mixin  flex($dic: row, $justify: center){
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    flex-direction: $dic;
+}
+
+@mixin center {
+    display: grid;
+    place-items: center;
+}
+
+@mixin grid ($col: 2){
+    display: grid;
+    grid-template-columns: repeat($col, 1fr);
+}
+
+@mixin section($bg){
+    width: 100%;
+    padding: 5rem 6rem;
+    background-color: $bg;
+}
+
+@mixin container{
+    max-width: 115rem;
+    margin: auto;
+}

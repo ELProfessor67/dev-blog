@@ -1,0 +1,42 @@
+@use './materials/mixin' as *;
+
+.section_allpost
+{
+	@include section(var(--background-secondary));
+	padding-top: 12rem;
+	> .container 
+	{
+		@include container;
+
+		> .heading
+		{
+			font-size: 2.7rem;
+			color: var(--foreground-primary);
+			padding: 0 0 1rem 3rem;
+			border-left: 0.4rem solid var(--action-primary);
+			margin-bottom: 2rem;
+		}
+	}
+	.edit_btn:hover
+	{
+		color: lighten(green, 20%);
+	}
+
+	.delete_btn:hover
+	{
+		color: lighten(red, 10%);
+	}
+}
+
+@media (max-width: 480px)
+{
+	.section_allpost
+	{
+		padding: 3rem;
+		padding-top: 12rem;
+	}
+	.section_settings .container .form_container form
+	{
+		padding: 3rem 2rem;
+	}
+}

@@ -1,0 +1,140 @@
+@use './materials/mixin' as *;
+
+.section_login
+{
+	@include section(var(--background-secondary));
+    padding: 3rem;
+    width: 100vw;
+    overflow-x: hidden;
+
+    > .container
+    {
+        @include container;
+        > .login_box
+        {
+        	max-width: 70rem;
+        	// border: 1px solid red;
+        	background-color: var(--background-primary);
+        	padding: 3rem;
+        	border-radius: 2rem;
+        	margin: auto;
+        	position: relative;
+
+        	> .logo
+        	{
+        		width: 100%;
+        		position: relative;
+
+        		> span
+        		{
+        			display: grid;
+        			place-items: center;
+        			width: 12rem;
+        			height: 12rem;
+        			border-radius: 50%;
+        			background-color: var(--background-secondary);
+        			font-size: 6rem;
+        			margin: auto;
+        			color: var(--foreground-secondary);
+        		}
+        	}
+
+
+        	> form
+        	{
+        		width: 100%;
+        		position: relative;
+        		.input_field
+        		{
+        			@include flex(column);
+        			align-items: flex-start;
+        			margin: 3rem 0;
+        			label
+        			{
+        				font-size: 2.5rem;
+        				color: var(--foreground-secondary);
+        				margin-bottom: 1rem;
+        				user-select: none;
+        			}
+
+        			input 
+        			{
+        				width: 100%;
+        				border: none;
+        				background: none;
+        				outline: none;
+        				padding: 1.8rem 1rem;
+        				font-size: 1.7rem;
+        				border: 0.1rem solid darken(hsl(214, 32%, 91%),20%);
+        				border-radius: .8rem;
+        				color: var(--foreground-secondary)
+        			}
+        		}
+
+        		.btn
+        		{
+        			text-align: center;
+        			> button
+        			{
+        				width: 20rem;
+				        text-align: center;
+				        font-size: 1.8rem;
+				        padding: 1.3rem;
+				        border-radius: 2.5rem;
+				        transition: all .3s;
+				        background-color: var(--accent);
+          				color: var(--white);
+          				&:hover
+				        {
+				          background-color: var(--foreground-secondary);
+				          color: var(--action-secondary);
+				        }
+        			}
+
+        			> a
+        			{
+        				color: var(--foreground-primary);
+        				transition: all .3s;
+        				&:hover
+        				{
+        					color: var(--accent);
+        				}
+        			}
+        		}
+        	}
+        }
+    }
+}
+
+@media (max-width: 450px)
+{
+	.section_login .container .login_box
+	{
+		padding: 3rem 2rem;
+	}
+}
+
+@media (max-width: 325px)
+{
+	.section_login .container .login_box
+	{
+		padding: 2rem 1rem;
+	}
+}
+
+@media (max-width: 300px)
+{
+	.section_login .container .login_box
+	{
+		> form > .input_field > input
+		{
+			padding: 1.5rem .5rem;
+			font-size: 1.5rem;
+		}
+
+		> form > .input_field > label
+		{
+			font-size: 2rem;
+		}
+	}
+}

@@ -1,0 +1,205 @@
+@use './materials/mixin' as *;
+
+.header
+{
+    width: 100%;
+    padding: 2rem 3rem;
+    background-color: var(--background-primary);
+    transition: .3s;
+    .container
+    {
+        @include flex($justify: space-between);
+        max-width: 115rem;
+        margin: auto;
+        background-color: var(--background-primary);
+        nav 
+        {
+            > ul 
+            {
+                @include flex;
+                gap: 2.7rem;
+                > li > a 
+                {
+                    font-size: 2rem;
+                    color: var(--foreground-secondary);
+                    transition: all .3s;
+                    &:hover
+                    {
+                        color: var(--accent);
+                    }
+                }
+                > li > span
+                {
+                    font-size: 2rem;
+                    color: var(--foreground-secondary);
+                    transform: all .3s;
+                    cursor: pointer;
+                    @include center;
+                    &:hover 
+                    {
+                        color: var(--accent);
+                    }
+                }
+            }
+            > .search_box
+            {
+                width: 32rem;
+                max-width: 32rem;
+                position: absolute;
+                z-index: 100;
+                margin-top: 2rem;
+                border-radius: 2.5rem;
+                background-color: var(--background-secondary);
+                @include flex;
+                padding: 1.5rem;
+                display: none;
+                transition: all .3s;
+                > input 
+                {
+                    width: 90%;
+                    color: var(--accent);
+                    font-size: 1.6rem;
+                }
+                &:hover
+                {
+                    outline: .1rem solid var(--accent);
+                }
+                > span
+                {
+                    font-size: 2rem;
+                    @include center;
+                    color: var(--foreground-secondary);
+                    transition: all .3s;
+                    cursor: pointer;
+                    &:hover
+                    {
+                        color: var(--accent);
+                    }
+                }
+            }
+            > .search_box.search_active
+            {
+                display: flex;
+            }
+        }
+        .logo
+        {
+            cursor: pointer;
+        }
+        > div:last-child
+        {
+            @include flex;
+            // gap: 2rem;
+            > button
+            {
+                width: 4rem;
+                height: 4rem;
+                @include center;
+                font-size: 2rem;
+                margin-left: 3rem;
+                background-color: var(--action-secondary);
+                border: none;
+                border-radius: 50%;
+                color: var(--foreground-tertiary);
+                transition: all .3s;
+                &:hover
+                {
+                    background-color: var(--accent);
+                    color: #fff;
+                }
+            }
+            .burger_menu
+            {
+                font-size: 3rem;
+                position: relative;
+                width: 4rem;
+                height: 4rem;
+                z-index: 10000;
+                @include center;
+                color: var(--foreground-tertiary);
+                border-radius: 50%;
+                transition: all .3s;
+                cursor: pointer;
+                display: none;
+                &:hover
+                {
+                    color: #fff;
+                    background-color: var(--accent);
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 780px)
+{
+    .header
+    {
+        .container
+        {
+            nav
+            {
+                position: absolute;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                left: -100%;
+                z-index: 1000;
+                background-color: var(--background-primary);
+                @include flex(column);
+                gap: 1rem;
+                padding: 0 3rem;
+                transition: all .3s;
+                > ul
+                {
+                    flex-direction: column;
+                    > li:last-child
+                    {
+                        display: none;
+                    }
+                    > li > a
+                    {
+                        font-size: 2.5rem;
+                    }
+                }
+                .search_box
+                {
+                    display: flex;
+                    position: static;
+                }
+            }
+            nav.active
+            {
+                left: 0;
+            }
+
+            > div:last-child
+            {
+                > button 
+                {
+                    margin-left: 0%;
+                    margin-right: 3rem;
+                    
+                }
+                > .burger_menu
+                {
+                    display: grid;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px)
+{
+    .header .container nav .search_box
+    {
+        width: 26rem;
+    }
+    .header .container div:last-child button
+    {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+}
